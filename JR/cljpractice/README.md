@@ -5,10 +5,11 @@ You must have Java and you will need to download Leiningen
 Here is a link - https://djpowell.github.io/leiningen-win-installer/
 
 #### Add code to existing string
-After installation, navigate to the .lein.bat file in the .lein/bin directory
+After installation, open the .lein.bat file in the .lein/bin directory
 - mine was in C:/Users/sonof/.lein/bin
-Open this file in an editor and add this code to line 157 after the first 
+Open this file in an editor and add this code to the string on line 157 after the first 
 semicolon.  
+Part of the string ##### powershell -Command
 ```
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 ```
