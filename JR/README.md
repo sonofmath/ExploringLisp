@@ -1,4 +1,5 @@
 # JRs Lisp Repo
 ```
-STUFF
+Trying out Clojure with VS Code
+- It works!
 ```
