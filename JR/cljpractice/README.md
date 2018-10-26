@@ -2,9 +2,8 @@
 
 ## Clojure Steps
 You must have Java and you will need to download Leiningen
-```
-https://djpowell.github.io/leiningen-win-installer/
-```
+Here is a link - https://djpowell.github.io/leiningen-win-installer/
+
 After installation, navigate to the .lein.bat file in the .lein/bin directory
 - mine was in C:/Users/sonof/.lein/bin
 Open this file in an editor and add this code to line 157 after the first 
