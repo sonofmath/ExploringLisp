@@ -9,7 +9,7 @@ After installation, open the .lein.bat file in the .lein/bin directory
 - mine was in C:/Users/sonof/.lein/bin
 Open this file in an editor and add this code to the string on line 157 after the first 
 semicolon.  
-Part of the string ##### powershell -Command
+Part of the string <b>powershell -Command</b>
 ```
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 ```
