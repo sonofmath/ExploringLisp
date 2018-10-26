@@ -9,10 +9,8 @@ After installation, navigate to the .lein.bat file in the .lein/bin directory
 - mine was in C:/Users/sonof/.lein/bin
 Open this file in an editor and add this code to line 157 after the first 
 semicolon.  
-"& {param($a,$f) $client = New-Object System.Net.WebClient;
 ```
-[System.Net.ServicePointManager]::SecurityProtocol = 
-[System.Net.SecurityProtocolType]::Tls12;
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 ```
 ### Use command line for the next commands
 ##### - These commands do not work with Git Bash
