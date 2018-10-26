@@ -4,6 +4,7 @@
 You must have Java and you will need to download Leiningen
 Here is a link - https://djpowell.github.io/leiningen-win-installer/
 
+#### Add code to existing string
 After installation, navigate to the .lein.bat file in the .lein/bin directory
 - mine was in C:/Users/sonof/.lein/bin
 Open this file in an editor and add this code to line 157 after the first 
@@ -14,15 +15,15 @@ semicolon.
 [System.Net.SecurityProtocolType]::Tls12;
 ```
 ### Use command line for the next commands
-#### - These commands do not work with Git Bash
+##### - These commands do not work with Git Bash
 ```
 lein self-install
 ```
-### Create a Clojure project in directory of your choosing
+#### Create a Clojure project in directory of your choosing
 ```
 lein new projectname
 ```
-### To start the REPL
+#### To start the REPL
 ```
 lein repl
 ```
