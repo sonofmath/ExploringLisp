@@ -22,8 +22,6 @@
     (+ (fib (- n 1))
        (fib (- n 2)))))
   
-(print "The 30th fibonacci number is: ") (print (fib 30)) (println)
-
-(print "Fib function was called: ") (print iter) (println " times.")
-
+(println "The 30th fibonacci number is:" (fib 30))
+(println "Fib function was called:" iter "times.")
 (sectime(fib 30))
