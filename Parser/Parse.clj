@@ -4,6 +4,15 @@
 (def tokens [1,2])
 (def error false)
 
+;Funtion "Prototypes"
+(defn getToken[])
+(defn digit [])
+(defn number [])
+(defn exp [])
+(defn factor [])
+(defn term [])
+
+
 (defn getToken []
   (if (> (count tokens) index)
     (do
@@ -17,24 +26,25 @@
       (if (= token "*")
           (getToken)))))
 
-(defn exp []
-  (print " <exp> ")
-  (term)
-  (while (= token "+")
-    (do
-       (getToken)
-       (term))))
-
 (defn digit []
   (print " <digit> ")
   (if (number? token)
-    (getToken)))
+    (getToken)
+    (print "Error")))
 
 (defn number []
   (print " <number> ")
   (digit)
   (while (number? token)
-    (getToken)))
+    (digit)))
+
+(defn exp []
+  (print " <exp> ")
+  (term)
+  (while (= token "+")
+    (do
+        (getToken)
+        (term))))
 
 (defn factor []
   (print " <factor> ")
@@ -47,7 +57,7 @@
         ;;;Else
         (print "Error")))
     ;;;Else
-    (number)))
+    (number)))        
 
 (defn term []
   (print " <term> ")
