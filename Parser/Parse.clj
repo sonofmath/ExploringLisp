@@ -3,6 +3,7 @@
 (def token " ")
 (def tokens [1,2])
 (def error false)
+(def endParse false)
 
 (defn isDigit [s]
   (if (= s \0)
@@ -42,14 +43,16 @@
       ;Notice way increment is done
       (def index (inc index))
       (newline)
-      (print "  <getToken> ",token))))
+      (print "  <getToken> ",token))
+    ;;;Else
+    (def endParse true)))
 
 (defn digit []
   (print " <digit> ")
   (if (isDigit token)
     (getToken)
     ;;;Else
-    (getToken)))
+    (print "Error - in digit")))
 
 (defn number []
   (print " <number> ")
