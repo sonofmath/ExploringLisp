@@ -5,13 +5,12 @@
 (def error false)
 
 ;Funtion "Prototypes"
-(defn getToken[])
+(defn getToken [])
 (defn digit [])
 (defn number [])
 (defn exp [])
 (defn factor [])
 (defn term [])
-
 
 (defn getToken []
   (if (> (count tokens) index)
@@ -20,17 +19,14 @@
       ;Notice way increment is done
       (def index (inc index))
       (newline)
-      (print "  <getToken> ",token)
-      (if (= token "+")
-          (getToken))
-      (if (= token "*")
-          (getToken)))))
+      (print "  <getToken> ",token))))
 
 (defn digit []
   (print " <digit> ")
   (if (number? token)
     (getToken)
-    (print "Error")))
+    ;;;Else
+    (println "Error - in digit ")))
 
 (defn number []
   (print " <number> ")
@@ -41,42 +37,43 @@
 (defn exp []
   (print " <exp> ")
   (term)
-  (while (= token "+")
+  (while (= token \+ )
     (do
         (getToken)
         (term))))
 
 (defn factor []
   (print " <factor> ")
-  (if (= token "(")
+  (if (= token \( )
     (do 
       (getToken)
       (exp)
-      (if (= token ")")
+      (if (= token \) )
         (getToken)
         ;;;Else
-        (print "Error")))
+        (println "Error - in factor ")))
     ;;;Else
     (number)))        
 
 (defn term []
   (print " <term> ")
   (factor)
-  (while (= token "*")
+  (while (= token \* )
     (do 
       (getToken)
       (factor))))
 
 (defn parse [statement]
   (newline)
+
   ;;;Reset Values
   (def index 0)
   (def token " ")
-  (def tokens [1,2])
+  (def tokens (char-array " "))
   (def error false)
 
   ;;Split the string into individual characters and store in tokens list
-  (def tokens (str/split statement #""))
+  (def tokens (char-array statement))
   ;;Prints the all the characters in the expression
   (println "==================================================================")
   (println "Inserting:",statement)
@@ -85,4 +82,4 @@
   (getToken)
   (exp))
 
-(parse "(2)")
+(parse "(3)")
