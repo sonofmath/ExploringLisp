@@ -49,7 +49,7 @@
 
 (defn digit []
   (print " <digit> ")
-  (if (isDigit token)
+  (if (and (isDigit token) (not= endParse true))
     (getToken)
     ;;;Else
     (print "Error - in digit")))
@@ -57,13 +57,13 @@
 (defn number []
   (print " <number> ")
   (digit)
-  (while (isDigit token)
+  (while (and (isDigit token) (not= endParse true))
     (digit)))
 
 (defn exp []
   (print " <exp> ")
   (term)
-  (while (= token \+ )
+  (while (and (= token \+ ) (not= endParse true))
     (do
         (getToken)
         (term))))
@@ -84,7 +84,7 @@
 (defn term []
   (print " <term> ")
   (factor)
-  (while (= token \* )
+  (while (and (= token \* ) (not= endParse true))
     (do 
       (getToken)
       (factor))))
@@ -97,6 +97,7 @@
   (def token " ")
   (def tokens (char-array " "))
   (def error false)
+  (def endParse false)
 
   ;;Split the string into individual characters and store in tokens list
   (def tokens (char-array statement))
@@ -108,7 +109,8 @@
   (getToken)
   (exp))
 
-(parse "3+5-7")
+(parse "3+4*5+6*7")
+(parse "((2))")
 
 
 
