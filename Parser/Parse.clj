@@ -4,6 +4,29 @@
 (def tokens [1,2])
 (def error false)
 
+(defn isDigit [s]
+  (if (= s \0)
+    true
+    (if (= s \1)
+      true
+      (if (= s \2)
+        true
+        (if (= s \3)
+          true
+          (if (= s \4)
+            true
+            (if (= s \5)
+              true
+              (if (= s \6)
+                true
+                (if (= s \7)
+                  true
+                  (if (= s \8)
+                    true
+                    (if (= s \9)
+                      true
+                      false)))))))))))
+
 ;Funtion "Prototypes"
 (defn getToken [])
 (defn digit [])
@@ -23,15 +46,15 @@
 
 (defn digit []
   (print " <digit> ")
-  (if (number? token)
+  (if (isDigit token)
     (getToken)
     ;;;Else
-    (println "Error - in digit ")))
+    (getToken)))
 
 (defn number []
   (print " <number> ")
   (digit)
-  (while (number? token)
+  (while (isDigit token)
     (digit)))
 
 (defn exp []
@@ -82,4 +105,7 @@
   (getToken)
   (exp))
 
-(parse "(3)")
+(parse "3+5-7")
+
+
+
