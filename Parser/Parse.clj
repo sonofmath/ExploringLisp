@@ -52,7 +52,7 @@
   (if (and (isDigit token) (not= endParse true))
     (getToken)
     ;;;Else
-    (print "Error - in digit")))
+    (do (print "Error!") (def error true))))
 
 (defn number []
   (print " <number> ")
@@ -77,7 +77,7 @@
       (if (= token \) )
         (getToken)
         ;;;Else
-        (println "Error - in factor ")))
+        (do (println "Error!") (def error true))))
     ;;;Else
     (number)))        
 
@@ -107,10 +107,16 @@
   (println "==================================================================")
   (print " <parse> ")
   (getToken)
-  (exp))
+  (exp)
+  
+  ;;;Prints the result of the parse
+  (newline)
+  (if (= error false)
+    (println "This expression parsed with NO errors!")
+    (println "Error!")))
 
+;;;Test Cases
 (parse "3+4*5+6*7")
 (parse "((2))")
-
-
-
+(parse "(2+5)*7")
+(parse "9+")
